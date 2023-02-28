@@ -21,6 +21,9 @@ require('snackbarjs');
 
 var exId = `login-modal-body`;
 
+const urlparser = require('./../../../browser/modules/urlparser');
+const urlVars = urlparser.urlVars;
+
 /**
  *
  * @type {{set: module.exports.set, init: module.exports.init}}
@@ -32,6 +35,12 @@ module.exports = {
         return this;
     },
     init: function () {
+        if (typeof urlVars.session === "string") {
+            const MAXAGE = (config.sessionMaxAge || 86400) / 86400; // In days
+            // Try to remove existing cookie
+            document.cookie = 'connect.gc2=; Max-Age=0; path=/; domain=' + location.host;
+            cookie.set("connect.gc2", urlVars.session, {expires: MAXAGE});
+        }
         /*quickfix */
         //<span class="badge badge-secondary">Beta</span>
         $('a[data-module-id="stateSnapshots"] span').append('<span class="badge badge-secondary">Beta</span>');
