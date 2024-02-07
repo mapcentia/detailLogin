@@ -78,7 +78,7 @@ module.exports = {
                 "da_DK": "Forkert brugernavn eller adgangskode",
                 "en_US": "Wrong user name or password"
             },
-            "Signed in as ": {
+            "Signed in as": {
                 "da_DK": "Logget ind som ",
                 "en_US": "Signed in as "
             },
@@ -227,7 +227,8 @@ module.exports = {
                             backboneEvents.get().trigger(`session:authChange`, true);
                             me.handleDHP(data);
 
-                            me.setState({statusText: `Signed in as ${data.screen_name} (${data.email})`});
+                            //me.setState({statusText: `Signed in as ${data.screen_name} (${data.email})`});
+                            me.setState({statusText: utils.__("Signed in as ", dict) + data.screen_name + data.email});
                             me.setState({alertClass: "alert-success"});
                             me.setState({btnText: utils.__("Log out", dict)});
                             me.setState({auth: true});
