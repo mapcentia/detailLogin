@@ -235,7 +235,7 @@ module.exports = {
                             $(".gc2-session-unlock").hide();
                             userName = data.screen_name;
                             parent.update();
-                            parent.addFeedbackModule();
+                            //parent.addFeedbackModule();
                         },
                         error: function (error) {
                             me.setState({statusText: utils.__("Wrong user name or password", dict)});
@@ -284,7 +284,7 @@ module.exports = {
                             me.handleDHP(data.status);
                             $(".gc2-session-lock").show();
                             $(".gc2-session-unlock").hide();
-                            parent.addFeedbackModule();
+                            //parent.addFeedbackModule();
                         } else {
                             backboneEvents.get().trigger(`session:authChange`, false);
 
@@ -301,7 +301,7 @@ module.exports = {
             }
 
             authenticated() {
-                parent.addFeedbackModule();
+                //parent.addFeedbackModule();
                 return this.state.auth;
             }
 
