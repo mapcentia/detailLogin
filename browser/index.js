@@ -385,17 +385,19 @@ module.exports = {
 
     getUserName: function () {
         return userName;
-    },
+    }
 
-    addFeedbackModule() {
+    /**
+    ,addFeedbackModule() {
         if($('.feedback-container').length > 0){
             return;
         }
-        /*Feedback component */
+        //Feedback component 
         $(document.body).append(`<div class="feedback-container"></div>`);
         try{
             ReactDOM.render(<FeedbackComponent />, document.querySelector('.feedback-container'));
         }catch(err){console.log(err)}
     }
+    */
 };
 
